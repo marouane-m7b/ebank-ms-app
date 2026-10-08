@@ -9,7 +9,6 @@ import java.util.Date;
 @Entity @Setter @Getter @NoArgsConstructor @AllArgsConstructor @Builder
 public class BankAccount {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private Date createdAt;
     private double balance;
