@@ -1,7 +1,6 @@
 package net.mahboub.customerservice.controllers;
 
 import net.mahboub.customerservice.entities.Customer;
-import net.mahboub.customerservice.repository.CustomerRepository;
 import net.mahboub.customerservice.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +10,8 @@ import java.util.List;
 public class CustomerRestController {
     private CustomerService customerService;
 
-    public CustomerService getCustomerService() {
-        return customerService;
+    public CustomerRestController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
 
