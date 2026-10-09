@@ -3,6 +3,21 @@ spring:
     gateway:
       server:
         webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins:
+                  - "*"
+                allowedMethods:
+                  - "*"
+                allowedHeaders:
+                  - "*"
+
+#spring:
+#  cloud:
+#    gateway:
+#      server:
+#        webflux:
           # Static routes replaced by Eureka discovery-based routing.
           # routes:
           #   - id: r1
