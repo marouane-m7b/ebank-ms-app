@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="/" (click)="closeMenus()">Ebank</a>
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="menuOpen">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="/" (click)="closeMenus()">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/chat" (click)="closeMenus()">Chat</a></li>
+        <li class="nav-item dropdown" [class.show]="dropdownOpen">
+          <a class="nav-link dropdown-toggle" href="#" role="button" [attr.aria-expanded]="dropdownOpen" (click)="toggleDropdown($event)">Services</a>
+          <ul class="dropdown-menu" [class.show]="dropdownOpen">
+            <li><a class="dropdown-item" href="/customers" (click)="closeMenus()">Customers</a></li>
+            <li><a class="dropdown-item" href="/accounts" (click)="closeMenus()">Accounts</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex gap-2" (ngSubmit)="search()">
+        <input class="form-control" name="search" [(ngModel)]="searchTerm" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+@if (searchMessage) { <div class="container mt-3 alert alert-info">{{ searchMessage }}</div> }
+<router-outlet>
+
+</router-outlet>
