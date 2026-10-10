@@ -39,9 +39,6 @@ public class EbankAIAgent {
     }
 
     public Flux<String> chatStream(Prompt prompt) {
-        return chatClient.prompt(prompt)
-                .advisors(advisor -> advisor.param(ChatMemory.CONVERSATION_ID, "default"))
-                .stream()
-                .content();
+        return Flux.defer(() -> Flux.just(chat(prompt)));
     }
 }
